@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'recorda',
     'authent',
     'land',
+    "search",
     'transaction',
     'django.contrib.sites',
     'allauth',
