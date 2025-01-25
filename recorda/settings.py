@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'authent',
     'land',
     "search",
+    "dashboard",
     'transaction',
     'django.contrib.sites',
     'allauth',

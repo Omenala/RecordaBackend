@@ -26,7 +26,7 @@ urlpatterns = [
      path('api/land/', include('land.urls')),
       path('api/transaction/', include('transaction.urls')),
        path('api/search/', include('search.urls')),
-    #path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/insight/', include('dashboard.urls'))
     #path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
     #spath('api/auth/', include('allauth.urls')),
 
