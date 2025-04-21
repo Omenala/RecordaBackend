@@ -1,9 +1,10 @@
 import random 
 from rest_framework import serializers
 from .models import Transaction
+from land.serializers import LandSerializer
 
 class TransactionSerializer(serializers.ModelSerializer):
-    #land_title = serializers.CharField(source='land', read_only=True)
+    land = LandSerializer()
     class Meta:
         model = Transaction
         fields = [
