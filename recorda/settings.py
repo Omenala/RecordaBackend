@@ -101,8 +101,23 @@ DATABASES = {
     }
 }
 
+#DATABASES = {
+    #'default': dj_database_url.config(default='postgresql://recorda_user:1bB49SMx0KcgqjMMWEiNDtRE7Ow1N4p9@dpg-cu2kput6l47c73c4jugg-a.oregon-postgres.render.com/recorda')
+#}
+
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://recorda_user:1bB49SMx0KcgqjMMWEiNDtRE7Ow1N4p9@dpg-cu2kput6l47c73c4jugg-a.oregon-postgres.render.com/recorda')
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'akubueze_Akubueze',      # e.g. cpaneluser_dbname
+        'USER':  'akubueze_Akubueze',   # e.g. cpaneluser_dbuser
+        'PASSWORD': 'Somadina123@.com',
+        'HOST': '144.76.18.104',  # e.g. yourdomain.com or server IP
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'use_unicode': True,
+        },
+    }
 }
 
 

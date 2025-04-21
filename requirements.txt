@@ -36,6 +36,7 @@ gunicorn==22.0.0
 httplib2==0.22.0
 idna==3.7
 msgpack==1.1.0
+mysqlclient==2.2.7
 packaging==24.1
 pillow==10.4.0
 proto-plus==1.24.0
@@ -60,3 +61,4 @@ uritemplate==4.1.1
 urllib3==2.2.2
 waitress==3.0.2
 whitenoise==6.8.2
+mysqlclient
