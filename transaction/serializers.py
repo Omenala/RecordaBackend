@@ -5,12 +5,13 @@ from land.serializers import LandSerializer
 from land.models import Land
 
 class TransactionSerializer(serializers.ModelSerializer):
-    land = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all())
+    land_id = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all())
+    land = LandSerializer(read_only=True)
 
     class Meta:
         model = Transaction
         fields = [
-            'land', 'buyer_name', 'buyer_email', 'buyer_phone',
+            'land', 'land_id', 'buyer_name', 'buyer_email', 'buyer_phone',
             'amount', 'amount_paid', 'balance', 'status', 'date',
             'time', 'payment_method', 'transaction_id', 'created_by', 'id'
         ]
