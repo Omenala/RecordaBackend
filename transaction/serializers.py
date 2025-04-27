@@ -2,10 +2,12 @@ import random
 from rest_framework import serializers
 from .models import Transaction
 from land.serializers import LandSerializer
+from land.models import Land
 
 class TransactionSerializer(serializers.ModelSerializer):
-    land = LandSerializer()
-    class Meta:
+   land = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all())
+
+class Meta:
         model = Transaction
         fields = [
            'land', 'buyer_name', 'buyer_email', 'buyer_phone',
@@ -14,7 +16,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['transaction_id']  # These fields are auto-generated
 
-    def create(self, validated_data):
+def create(self, validated_data):
         # Automatically set the 'created_by' field to the authenticated user
         user = self.context['request'].user  # Assuming the user is authenticated
         validated_data['created_by'] = user
