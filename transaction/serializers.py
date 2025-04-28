@@ -5,7 +5,7 @@ from land.serializers import LandSerializer
 from land.models import Land
 
 class TransactionSerializer(serializers.ModelSerializer):
-    land_id = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all())
+    land_id = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all(),  write_only=True)
     land = LandSerializer(read_only=True)
 
     class Meta:
