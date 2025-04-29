@@ -18,8 +18,15 @@ class TransactionSerializer(serializers.ModelSerializer):
         read_only_fields = ['transaction_id']  # These fields are auto-generated
 
     def create(self, validated_data):
+        # Extract nested land data
+        land_data = validated_data.pop('land')  
+        # Create Land instance
+        land = Land.objects.create(**land_data)  
+
         # Automatically set the 'created_by' field to the authenticated user
         user = self.context['request'].user  # Assuming the user is authenticated
         validated_data['created_by'] = user
         validated_data['transaction_id'] = f"AHE{random.randint(100000, 99999999)}"
+        validated_data['land'] = land  # Assign the created Land instance
+
         return super().create(validated_data)
