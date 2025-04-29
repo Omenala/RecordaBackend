@@ -11,7 +11,7 @@ class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = [
-            'land', 'land_id', 'buyer_name', 'buyer_email', 'buyer_phone',
+            'land', 'buyer_name', 'buyer_email', 'buyer_phone',
             'amount', 'amount_paid', 'balance', 'status', 'date',
             'time', 'payment_method', 'transaction_id', 'created_by', 'id'
         ]
