@@ -5,8 +5,8 @@ from land.serializers import LandSerializer
 from land.models import Land
 
 class TransactionSerializer(serializers.ModelSerializer):
-    #land_id = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all(),  write_only=True)
-    land = LandSerializer()
+    land_id = serializers.PrimaryKeyRelatedField(queryset=Land.objects.all(),  write_only=True)
+    land = LandSerializer(read_only=True)
 
     class Meta:
         model = Transaction
@@ -17,11 +17,7 @@ class TransactionSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['transaction_id']  # These fields are auto-generated
 
-    def create(self, validated_data):
-        # Extract nested land data
-        land_data = validated_data.pop('land')  
-        # Create Land instance
-        land = Land.objects.create(**land_data)  
+     
 
         # Automatically set the 'created_by' field to the authenticated user
         user = self.context['request'].user  # Assuming the user is authenticated
